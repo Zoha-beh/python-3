@@ -1,0 +1,60 @@
+def quiz_fragen():
+    fragen = [
+        {
+            "frage": "Was ist die Hauptstadt von Frankreich?",
+            "optionen": ["A) Berlin", "B) Madrid", "C) Paris", "D) Rom"],
+            "antwort": "C"
+        },
+        {
+            "frage": "Wie viele Kontinente gibt es auf der Erde?",
+            "optionen": ["A) 5", "B) 6", "C) 7", "D) 8"],
+            "antwort": "C"
+        },
+        {
+            "frage": "Welches Element hat das chemische Symbol 'O'?",
+            "optionen": ["A) Gold", "B) Silber", "C) Sauerstoff", "D) Wasserstoff"],
+            "antwort": "C"
+        },
+        {
+            "frage": "Wer hat die Relativitätstheorie entwickelt?",
+            "optionen": ["A) Isaac Newton", "B) Nikola Tesla", "C) Albert Einstein", "D) Galileo Galilei"],
+            "antwort": "C"
+        },
+        {
+            "frage": "Wie viele Planeten hat unser Sonnensystem?",
+            "optionen": ["A) 7", "B) 8", "C) 9", "D) 10"],
+            "antwort": "B"
+        }
+    ]
+    return fragen
+
+def quiz_spielen():
+    fragen = quiz_fragen()
+    punkte = 0
+
+    for frage in fragen:
+        print("\n" + frage["frage"])
+        for option in frage["optionen"]:
+            print(option)
+
+        antwort = input("Deine Antwort: ").strip().upper()
+
+        if antwort == frage["antwort"]:
+            print("Richtig!")
+            punkte += 1
+        else:
+            print(f"Falsch! Die richtige Antwort ist {frage['antwort']}.")
+
+    print(f"\nDu hast {punkte} von {len(fragen)} Fragen richtig beantwortet.")
+
+def main():
+    print("Willkommen zum Quiz-Spiel!")
+    while True:
+        quiz_spielen()
+        nochmal = input("Möchtest du noch einmal spielen? (ja/nein): ").strip().lower()
+        if nochmal != 'ja':
+            print("Danke fürs Spielen! Bis zum nächsten Mal.")
+            break
+
+if __name__ == "__main__":
+    main()
